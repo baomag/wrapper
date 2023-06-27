@@ -1,0 +1,1 @@
+../src/plot_go_bar/plot_go_bar.sh

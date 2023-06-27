@@ -1,0 +1,15 @@
++ mkdir -p /storage/singlecell/maggie/wrapper/src/seurath52celltype_table/main
++ R -s --vanilla -e 'infile='\''/storage/singlecell/maggie/ABCA4/seurath52name/10x3v31_Organoid_NHDF_D261.rds'\''' -e 'outdir='\''/storage/singlecell/maggie/wrapper/src/seurath52celltype_table/main'\''' -e 'bname='\''10x3v31_Organoid_NHDF_D261'\''' -e 'source('\''/storage/chen/home/u244209/wrapper/src/seurath52celltype_table/R/seurath52celltype_table.R'\'')'
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Attaching SeuratObject
+Attaching sp

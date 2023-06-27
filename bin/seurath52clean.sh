@@ -1,0 +1,1 @@
+../src/seurath52clean/seurath52clean.sh

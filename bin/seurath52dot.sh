@@ -1,0 +1,1 @@
+../src/seurath52dot/seurath52dot.sh

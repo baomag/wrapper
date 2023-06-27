@@ -1,0 +1,1 @@
+../src/seurath52marker/seurath52marker.sh

@@ -1,0 +1,1 @@
+../src/seurath52split/seurath52split.sh

@@ -1,0 +1,1 @@
+../src/seurath52integrate/seurath52integrate.sh

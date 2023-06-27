@@ -1,0 +1,1 @@
+../src/seurath52cluster/seurath52cluster.sh

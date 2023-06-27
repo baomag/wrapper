@@ -1,0 +1,40 @@
+Options:
+  -h|--help                           Help message.
+  -o|--outdir OUTDIR									Output directory.
+  -W|--width WIDTH                    Width of the histogramdd. Default: 3.5.
+  -H|--height HEIGHT                  Height of the histogram. Default: 3.5.
+  -x|--xlab XLAB                      The x label of the variable. Default: empty.
+  -y|--ylab YLAB                      The y label of the variable. Default: empty.
+  -m|--main MAIN                      The main title. Default: empty.
+  --trim                              Trim the violin to the range of the data. Default: retain the violin tail.
+  --meth                              Using methylation mode, affecting ylim and boxplot outliers. Default: no.
+  --outlier                           Remove outliers. Default: no.
+  -r|--rotate ROTATE                  Rotation angle. `0 | 45 | 90`. Default: 45.
+  --showlegend                        Show legend. Default: no.
+
+Examples:
+  rplotviolin.sh -o result.pdf -x Dose -y Length < data.txt
+
+  # Trim the violin tail to the range of data
+  rplotviolin.sh --trim -o result.pdf -x Dose -y Length < data.txt
+
+Note:
+  Input is unheaded, and it has 2 columns.
+
+  ```
+  group<TAB>value
+  ```
+
+  ```
+  $ head.sh data.txt 
+  ==> data.txt <==
+  0.5	4.2
+  0.5	11.5
+  0.5	7.3
+  ```
+
+Date:
+  2020/07/22
+
+Authors:
+  Jin Li <lijin.abc@gmail.com>

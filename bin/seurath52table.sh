@@ -1,0 +1,1 @@
+../src/seurath52table/seurath52table.sh

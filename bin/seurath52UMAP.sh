@@ -1,0 +1,1 @@
+../src/seurath52UMAP/seurath52UMAP.sh

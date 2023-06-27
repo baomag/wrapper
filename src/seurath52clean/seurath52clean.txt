@@ -1,0 +1,26 @@
+Options:
+  -h|--help                           Help message.
+  -o|--outdir OUTDIR									Output directory.
+	-b|--bname													File basename.
+	-m|--mito			                      Upper boundary for the percent mitochondria. Default: 5.
+	-n|--nfeaturelower									Lower boundary for the number of features in the sample. Default: 200
+	
+Examples:
+  slurmtaco.sh -t 2 -m 20G -- seurath52clean.sh -d "$outdir" -b "$id" -m 10 -n 200 -- "$f"
+
+Note:
+	This wrapper is used to clean the filtered sequencing data in count matrix format
+	It takes a subset of the full data based on the quality metrics
+	Input: count matrix, restriction on number of feature -- nfeaturelower, restriction on percent.mt -- mito
+	Output: (same)
+
+	We use violin graph to visualize data in terms of 3 metrics:
+	nFeatures, nCount, and percent.mt
+	
+	We do not put restriction on nCount and upper bound of nFeature because most sequenced data fall into the reasonable range
+
+Date:
+  2022/07/20
+
+Authors:
+	Maggie Bao(maggiemaizibao@gmail.com)

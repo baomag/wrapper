@@ -1,0 +1,1 @@
+../src/seurath52merge/seurath52merge.sh

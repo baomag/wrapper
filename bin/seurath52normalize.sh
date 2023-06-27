@@ -1,0 +1,1 @@
+../src/seurath52normalize/seurath52normalize.sh

@@ -1,0 +1,15 @@
++ mkdir -p .
++ R -s --vanilla -e 'infile='\''/storage/chen/home/u244209/ABCA4/wrapper/seurath52marker/main/raw_feature_bc_matrix_biomarker.rds'\''' -e 'outdir='\''.'\''' -e 'bname='\''raw_feature_bc_matrix'\''' -e 'cell='\''Rod'\''' -e 'marker='\''/storage/chen/home/u244209/ABCA4/hs_marker.txt'\''' -e width=9 -e height=4 -e 'source('\''/storage/chen/home/u244209/ABCA4/wrapper/seurath52feature/4marker/R/seurath52feature.R'\'')'
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Attaching SeuratObject
+Attaching sp
