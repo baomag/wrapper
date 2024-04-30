@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vim: set noexpandtab tabstop=2:
 
-args=$(getopt -o hd:b: -l help,outdir:,bname: --name "$0" -- "$@") || exit "$?"
+args=$(getopt -o hd:b:W:H: -l help,outdir:,bname:,width:,height: --name "$0" -- "$@") || exit "$?"
 eval set -- "$args"
 
 absdir=$(dirname $(readlink -f "$0"))
@@ -16,6 +16,14 @@ do
 			;;
 		-d|--outdir)
 			outdir=$2
+			shift 2
+			;;
+		-W|--width)
+			width=$2
+			shift 2
+			;;
+		-H|--height)
+			height=$2
 			shift 2
 			;;
 		-b|--bname)
@@ -42,6 +50,8 @@ mkdir -p "$outdir" && R -s --vanilla \
 	-e "infile='$f'"\
 	-e "outdir='$outdir'"\
 	-e "bname='$bname'" \
+	-e "height=$height"\
+	-e "width=$width"\
 	-e "source('$absdir/R/$scriptname.R')"
 }
 

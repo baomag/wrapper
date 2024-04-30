@@ -13,11 +13,13 @@ x <- readRDS(infile)
 xx=table(x$celltype)
 #xx=table(x$scpred_prediction)
 #xx=table(x$majorclass)
-#xx=xx/sum(xx)
 
-# save table
-#write.table(xx, file=sprintf('%s/%s_cell_prop.txt', outdir, bname), quote=F, sep='\t', row.names=F, col.names=T)
+# Write cell count table
 write.table(xx, file=sprintf('%s/%s_cell_count.txt', outdir, bname), quote=F, sep='\t', row.names=F, col.names=T)
+
+# Calculate cell type proportion and write proportion table
+xx=xx/sum(xx)
+write.table(xx, file=sprintf('%s/%s_cell_prop.txt', outdir, bname), quote=F, sep='\t', row.names=F, col.names=T)
 
 # save RDS
 # saveRDS(abca4, file=sprintf('%s/%s_table.rds', outdir, bname))

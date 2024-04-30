@@ -43,8 +43,12 @@ DEF
 layout2<-"
 AB
 "
+layout3<-"
+A
+B"
 p <- wrap_plots(p_list ,guides = 'collect', design = layout1)
 #p <- wrap_plots(p_list ,guides = 'collect', design = layout2)
+#p <- wrap_plots(p_list ,guides = 'collect', design = layout3)
 #p <- FeaturePlot(abca4, features = features, pt.size= 1, split.by=split_group, keep.scale = "all") + theme(legend.position = c(0.1,0.2)) + guides(group = guide_legend(nrow = 2)) 
 ggsave(p, filename = sprintf('%s/%s_featurebyfeature.png', outdir, bname) , height=height, width=width)
 

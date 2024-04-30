@@ -4,18 +4,13 @@ library(dplyr)
 
 #This code filter compare-treatment/treatment_time DEGs from Monocle 3
 #parameters: q - q-value cutoff; n - number of cells expressed; f - fold change; 
-#default number: q = 0.01; n = 100; s: 1; f: 0.5
-
-print(number)
-print(q_val)
-print(slope)
-print(fold)
+#default number: q = 0.01; n = 200; s: 1; f: 0.5
 
 # Read models
 treatment_time = read.csv(infile)
 compare_treatment = read.csv(model)
 
-# Dcast treatment_time model
+# Dcast treatment_time/treatment_sample model
 xx=subset(treatment_time, treatment_time$term %in% 'treatmentcontrol')
 term_combined = dcast(xx, gene_id~term, value.var = 'estimate')
 xx_sub = select(xx, c("gene_id", "normalized_effect"))

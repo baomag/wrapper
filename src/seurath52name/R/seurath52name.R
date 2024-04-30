@@ -15,8 +15,8 @@ new.cluster.ids=new.cluster.ids[, 2]
 names(new.cluster.ids) <- levels(abca4)
 abca4 <- RenameIdents(abca4, new.cluster.ids)
 
-#p = DimPlot(abca4, reduction = "umap", label=T)
+p = DimPlot(abca4, reduction = "umap", label=T)
 #ggsave(p, filename = sprintf('%s/%s_labeled_UMAP.pdf', outdir, bname) , height=5, width=6, useDingbats=F)
-#ggsave(p, filename = sprintf('%s/%s_labeled_UMAP.png', outdir, bname) , height=5, width=6)
+ggsave(p, filename = sprintf('%s/%s_labeled_UMAP.png', outdir, bname) , height=5, width=6)
 saveRDS(abca4, file=sprintf('%s/%s.rds', outdir, bname))
 

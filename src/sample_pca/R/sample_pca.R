@@ -47,12 +47,17 @@ for (i in 1:length(sample_gene_expression)){
 	smean = rbind(smean,t(as.matrix(rowMeans(each_sample))))
 }
 
-smean = smean[2:7,]
+# Exclude the first row of NA
+num = nrow(smean)
+smean = smean[2:num,]
+# Add necessary information including sampleid and treatment
 rownames(smean) = names(ss_samples)
 smean = as.data.frame(smean)
 smean = cbind(smean,rownames(smean))
 colnames(smean)[nfeature+1] = "sampleid"
-treatment =  c("abca4", "abca4", "abca4", "abca4", "control", "control")
+# Hard-coded for multiple control, subject to change
+treatment =  c("patient", "patient", "patient", "patient", "control", "control", "control", "control", "control", "control")
+#treatment =  c("patient", "patient", "patient", "patient", "control", "control")
 smean = cbind(smean,treatment)
 
 # run pca
@@ -71,19 +76,31 @@ percent_explained = round(percent_explained * 100, digit = 2)
 
 # prepare the data frame for pca plotting
 pca_res$sampleid = rownames(pca_res$x)
-pca_res$treatment = c("abca4", "abca4", "abca4", "abca4", "control", "control")
+# Hard-coded for multiple control, subject to change
+pca_res$treatment = c("patient", "patient", "patient", "patient", "control", "control", "control", "control", "control", "control")
 
 # plot pca
-#pca_plot = ggplot(data = pca_res, aes(x = PC1, y = PC2))+ geom_point(aes(color = pca_res$sampleid)) +
-#					xlab(paste("PC1 (",percent_explained[1],"%)")) + ylab(paste("PC2 (",percent_explained[2],"%)")) +
-#
-#					+	theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-#						panel.background = element_blank(), axis.line = element_line(colour = "black"))
-
-
-pca_plot = autoplot(pca_res, data = smean, colour = "treatment", size = 4) +
-theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-	panel.background = element_blank(), axis.line = element_line(colour = "black"))
+# Note: everytime make sure if want to include label
+reversed_palette <- rev(c("red", "blue"))
+pca_plot = autoplot(pca_res, data = smean, colour = "treatment", size = 4, label = F, palette = reversed_palette)
+if (pr){
+	pca_plot = pca_plot + ggtitle("Photoreceptors")
+}
+if (cone){
+	pca_plot = pca_plot + ggtitle("Cone Cells")
+}
+if (rod){
+	pca_plot = pca_plot + ggtitle("Rod Cells")
+}
+if (rod == FALSE & cone == FALSE & pr == FALSE){
+	pca_plot = pca_plot + ggtitle("All Cell Types")
+}
+	
+pca_plot = pca_plot + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+	panel.background = element_blank(), 
+	axis.line = element_line(colour = "black")) +
+	scale_colour_manual(values=c("#00BFC4","#F8766D")) +
+	scale_fill_manual(values=c("#00BFC4","#F8766D"))
 
 # save plot
 if (pr){

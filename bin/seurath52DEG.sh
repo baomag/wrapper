@@ -1,0 +1,1 @@
+../src/seurath52DEG/seurath52DEG.sh

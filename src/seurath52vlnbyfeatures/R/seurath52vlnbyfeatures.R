@@ -16,11 +16,11 @@ if(subtype_column!='') {
 }
 
 # give the sample order
- abca4_subset@meta.data$sampleid <- factor(x = abca4_subset@meta.data$sampleid, levels = c("10x3v31_Organoid_JONR1_D135", 
-		"10x3v31_Organoid_JONR_D262", "10x3v31_Organoid_SONR1_D135", 
-		"10x3v31_Organoid_SONR_D262", "NHDF2_D130", "NHDF2_D320"))
+# abca4_subset@meta.data$sampleid <- factor(x = abca4_subset@meta.data$sampleid, levels = c("10x3v31_Organoid_JONR1_D135", 
+#		"10x3v31_Organoid_JONR_D262", "10x3v31_Organoid_SONR1_D135", 
+#		"10x3v31_Organoid_SONR_D262", "NHDF2_D130", "NHDF2_D320"))
 
-#p <- VlnPlot(abca4_subset, features = features, pt.size=0, split.by=split_group, group.by=group) + NoLegend() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
-p <- VlnPlot(abca4_subset, features = features, pt.size=0, split.by=split_group, group.by=group) + theme(axis.text.x = element_blank())
+p <- VlnPlot(abca4_subset, features = features, pt.size=0, split.by=split_group, group.by=group) + NoLegend() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+#p <- VlnPlot(abca4_subset, features = features, pt.size=0, split.by=split_group, group.by=group) + theme(axis.text.x = element_blank())
 
 ggsave(p, filename = sprintf('%s/%s_vlnbyfeature.png', outdir, bname) , height=height, width=width)

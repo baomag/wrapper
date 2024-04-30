@@ -36,5 +36,5 @@ print("cells combined")
 DefaultAssay(cell.combined) <- "integrated"
 
 # save RDS
-print("saving RDS.....")
+print("saving RDS to.....")
 saveRDS(cell.combined, file=sprintf('%s/%s_integrate.rds', outdir, bname))

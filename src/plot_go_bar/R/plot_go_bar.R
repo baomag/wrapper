@@ -30,6 +30,7 @@ p = ggplot(data = dframe, aes(x=reorder(term_name,negative_log10_of_adjusted_p_v
 geom_bar(stat="identity", fill="dark blue") +
 labs(y = "-log10(adj.pvalue)") +
 ggtitle(paste(name[[1]][1],name[[1]][2],"Enriched Biological Process")) +
+#ggtitle(paste(name[[1]][1],name[[1]][2],name[[1]][3],"Enriched Biological Process")) +
 theme(axis.text.y=element_text(size=10), 
 	axis.text.x=element_text(size=10),
 	axis.title.y=element_blank(),

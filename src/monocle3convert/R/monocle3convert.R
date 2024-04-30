@@ -16,7 +16,7 @@ seurat_object = subset(seurat_object, cells=colnames(seurat_object)[seurat_objec
 seurat_object@meta.data$batch <- colnames(seurat_object)
 
 # data preprocessing
-seurat_object <- NormalizeData(seurat_object)
+#seurat_object <- NormalizeData(seurat_object)
 #seurat_object <- FindVariableFeatures(seurat_object, selection.method = "vst", nfeatures = 10000)
 print('==> seurat_object')
 str(seurat_object)
